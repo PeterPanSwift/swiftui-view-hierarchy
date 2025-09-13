@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SwiftUI View Hierarchy 可視化</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="starfield" aria-hidden="true"></div>
+    <div id="b612Scene" aria-hidden="true">
+        <div class="b612-planet use-image">
+            <img class="b612-img" src="assets/b612.png" alt="B-612 illustration" />
+            <div class="b612-prince" title="the little prince">
+                <div class="p-head"></div>
+                <div class="p-body"></div>
+                <div class="p-leg l"></div>
+                <div class="p-leg r"></div>
+                <div class="p-scarf"></div>
+            </div>
+            <div class="b612-moon"></div>
+            <div class="b612-rose" title="rose"></div>
+            <div class="b612-label">B-612</div>
+        </div>
+    </div>
+    <header class="app-header">
+        <h1>SwiftUI View Hierarchy 可視化</h1>
+        <p class="subtitle">貼上 SwiftUI 程式，生成可展開/收合的階層樹</p>
+    </header>
+
+    <main class="container">
+        <section class="input-panel card">
+            <div class="toolbar">
+                <div class="left">
+                    <label for="rootSelect">Root View</label>
+                    <select id="rootSelect" title="選擇要作為根節點的 View"></select>
+                </div>
+                <div class="right">
+                    <button id="pasteExample" class="secondary">貼上範例</button>
+                    <button id="parseBtn" class="primary">解析並生成</button>
+                </div>
+            </div>
+            <textarea id="codeInput" placeholder="在此貼上 SwiftUI 程式碼..." spellcheck="false"></textarea>
+            <div id="errorBox" class="error-box" hidden></div>
+        </section>
+
+        <section class="output-panel card">
+            <div class="out-toolbar">
+                <div class="left">
+                    <button id="expandAll" class="ghost">全部展開</button>
+                    <button id="collapseAll" class="ghost">全部收合</button>
+                </div>
+                <div class="right small">點擊節點以展開/收合 · 顯示 modifiers 於節點右側</div>
+            </div>
+            <div id="treeRoot" class="tree-root empty">尚未解析 · 請貼上程式並點「解析並生成」</div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <span>Made for SwiftUI lovers · 本工具為啟發式解析，可能不支援所有語法</span>
+        <a href="#" id="showReadme">說明</a>
+    </footer>
+
+    <script src="parser.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

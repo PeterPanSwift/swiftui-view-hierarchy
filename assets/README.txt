@@ -1,0 +1,1 @@
+Place your B-612 illustration here as b612.png. Recommended size around 768x768 with transparent background. The UI will automatically use it if present; otherwise it falls back to the CSS-drawn planet.
