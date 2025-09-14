@@ -78,6 +78,8 @@ body {
     box-shadow: none;
     border: none;
     transform: none;
+    perspective: 900px;
+    transform-style: preserve-3d;
 }
 
 .b612-planet .b612-img {
@@ -89,6 +91,9 @@ body {
     object-fit: contain;
     pointer-events: none;
     filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+    backface-visibility: hidden;
+    transform-origin: 60% 65%;
+    animation: b612Spin 14s ease-in-out infinite;
 }
 
 .b612-planet.use-image .b612-moon,
@@ -100,6 +105,36 @@ body {
 
 .b612-planet.use-image::after {
     display: none;
+}
+
+/* Cute 3D spin for the B-612 illustration */
+@keyframes b612Spin {
+    0% {
+        transform: rotateX(14deg) rotateY(-12deg) rotateZ(0deg) translateZ(0px);
+    }
+
+    25% {
+        transform: rotateX(10deg) rotateY(0deg) rotateZ(1deg) translateZ(6px);
+    }
+
+    50% {
+        transform: rotateX(12deg) rotateY(12deg) rotateZ(0deg) translateZ(10px);
+    }
+
+    75% {
+        transform: rotateX(16deg) rotateY(0deg) rotateZ(-1deg) translateZ(6px);
+    }
+
+    100% {
+        transform: rotateX(14deg) rotateY(-12deg) rotateZ(0deg) translateZ(0px);
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .b612-planet .b612-img {
+        animation: b612Spin 24s ease-in-out infinite;
+    }
 }
 
 .b612-planet::after {
