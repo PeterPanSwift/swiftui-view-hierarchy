@@ -93,7 +93,8 @@ body {
     filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
     backface-visibility: hidden;
     transform-origin: 60% 65%;
-    animation: b612Spin 14s ease-in-out infinite;
+    will-change: transform;
+    animation: b612Spin 20s linear infinite;
 }
 
 .b612-planet.use-image .b612-moon,
@@ -110,30 +111,30 @@ body {
 /* Cute 3D spin for the B-612 illustration */
 @keyframes b612Spin {
     0% {
-        transform: rotateX(14deg) rotateY(-12deg) rotateZ(0deg) translateZ(0px);
+        transform: rotateX(12deg) rotateY(-10deg) rotateZ(0deg) translateZ(4px);
     }
 
     25% {
-        transform: rotateX(10deg) rotateY(0deg) rotateZ(1deg) translateZ(6px);
+        transform: rotateX(10deg) rotateY(0deg) rotateZ(90deg) translateZ(8px);
     }
 
     50% {
-        transform: rotateX(12deg) rotateY(12deg) rotateZ(0deg) translateZ(10px);
+        transform: rotateX(12deg) rotateY(10deg) rotateZ(180deg) translateZ(10px);
     }
 
     75% {
-        transform: rotateX(16deg) rotateY(0deg) rotateZ(-1deg) translateZ(6px);
+        transform: rotateX(14deg) rotateY(0deg) rotateZ(270deg) translateZ(8px);
     }
 
     100% {
-        transform: rotateX(14deg) rotateY(-12deg) rotateZ(0deg) translateZ(0px);
+        transform: rotateX(12deg) rotateY(-10deg) rotateZ(360deg) translateZ(4px);
     }
 }
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
     .b612-planet .b612-img {
-        animation: b612Spin 24s ease-in-out infinite;
+        animation: b612Spin 36s linear infinite;
     }
 }
 
